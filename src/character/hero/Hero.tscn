@@ -747,49 +747,49 @@ position = Vector2( -65.9257, -89.8984 )
 
 [node name="LegBackLeft" type="Sprite" parent="Pivot"]
 position = Vector2( -253.014, -65.9255 )
-rotation = 0.504086
+rotation = 0.481534
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackLeft" type="Sprite" parent="Pivot/LegBackLeft"]
-position = Vector2( -378.02, 215.76 )
-rotation = -0.726861
+position = Vector2( -385.836, 204.727 )
+rotation = -0.659204
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegBackRight" type="Sprite" parent="Pivot"]
 position = Vector2( -317.641, 104.881 )
-rotation = -0.242287
+rotation = -0.219735
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackRight" type="Sprite" parent="Pivot/LegBackRight"]
-position = Vector2( -499.33, 44.4564 )
-rotation = -0.0195124
+position = Vector2( -491.125, 50.8137 )
+rotation = -0.0420649
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegFrontRight" type="Sprite" parent="Pivot"]
-position = Vector2( 253.241, 265.269 )
-rotation = -0.0780497
+position = Vector2( 257.463, 260.152 )
+rotation = -0.16826
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1450, 290, 260, 320 )
 
 [node name="legFrontLeft" type="Sprite" parent="Pivot"]
 position = Vector2( 171.676, 371.58 )
-rotation = -0.0195124
+rotation = -0.0420649
 scale = Vector2( 1, 0.99531 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1460, 10, 210, 270 )
 
 [node name="Skull" type="Sprite" parent="Pivot"]
-rotation = 0.00780497
+rotation = 0.016826
 z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
@@ -808,3 +808,6 @@ scale = Vector2( 0.892978, 0.892978 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 990, 330, 400, 140 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

@@ -3,7 +3,7 @@ extends KinematicBody2D
 var state_machine: AnimationNodeStateMachinePlayback
 var run_speed = 500
 var velocity = Vector2.ZERO
-var gravity: float = 400
+var gravity: float = 10000
 
 func _ready() -> void:
 	state_machine = $AnimationTree.get("parameters/playback")
@@ -22,17 +22,24 @@ func get_input():
 		velocity.x -= 1
 		flip_h(true)
 	
-	velocity = velocity.normalized() * run_speed
+	if Input.is_action_pressed("player_jump"):
+		velocity.y -= 1000
+		jump()
 	
-	if (velocity.length() == 0):
+	velocity.x = velocity.x * run_speed
+	
+	if (velocity.y != 0):
+		jump()
+	elif (velocity.x == 0 && is_on_floor()):
 		state_machine.travel("idle")
-	if (velocity.length() != 0):
+	elif (velocity.x != 0 && is_on_floor()):
 		state_machine.travel("run")
+
 
 func _physics_process(delta: float) -> void:
 	get_input()
-	velocity.y += gravity
-	move_and_slide(velocity)
+	velocity.y += gravity * delta
+	move_and_slide(velocity, Vector2.UP)
 
 func jump():
 	state_machine.travel("jump")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/termites_and_ants.wav-fb0406e10f81d168aed5a1175b732528.sample"
+
+[deps]
+
+source_file="res://assets/termites_and_ants.wav"
+dest_files=[ "res://.import/termites_and_ants.wav-fb0406e10f81d168aed5a1175b732528.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

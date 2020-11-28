@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/our-hero.png" type="Texture" id=1]
 [ext_resource path="res://src/character/hero/Hero.gd" type="Script" id=2]
+[ext_resource path="res://assets/termites_and_ants.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 400, 395.553 )
@@ -690,6 +691,20 @@ tracks/17/keys = {
 "update": 0,
 "values": [ 30.0, 35.0, -10.0, -35.0, -10.0, 30.0 ]
 }
+tracks/18/type = "audio"
+tracks/18/path = NodePath("AudioStreamPlayer2D")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"clips": [ {
+"end_offset": 0.2,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="AnimationNodeAnimation" id=5]
 animation = "idle"
@@ -747,49 +762,49 @@ position = Vector2( -65.9257, -89.8984 )
 
 [node name="LegBackLeft" type="Sprite" parent="Pivot"]
 position = Vector2( -253.014, -65.9255 )
-rotation = 0.481534
+rotation = 0.452502
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackLeft" type="Sprite" parent="Pivot/LegBackLeft"]
-position = Vector2( -385.836, 204.727 )
-rotation = -0.659204
+position = Vector2( -395.898, 190.525 )
+rotation = -0.572106
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegBackRight" type="Sprite" parent="Pivot"]
 position = Vector2( -317.641, 104.881 )
-rotation = -0.219735
+rotation = -0.190702
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackRight" type="Sprite" parent="Pivot/LegBackRight"]
-position = Vector2( -491.125, 50.8137 )
-rotation = -0.0420649
+position = Vector2( -480.563, 58.9975 )
+rotation = -0.0710974
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegFrontRight" type="Sprite" parent="Pivot"]
-position = Vector2( 257.463, 260.152 )
-rotation = -0.16826
+position = Vector2( 262.899, 253.566 )
+rotation = -0.28439
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1450, 290, 260, 320 )
 
 [node name="legFrontLeft" type="Sprite" parent="Pivot"]
 position = Vector2( 171.676, 371.58 )
-rotation = -0.0420649
+rotation = -0.0710974
 scale = Vector2( 1, 0.99531 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1460, 10, 210, 270 )
 
 [node name="Skull" type="Sprite" parent="Pivot"]
-rotation = 0.016826
+rotation = 0.028439
 z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
@@ -811,3 +826,5 @@ region_rect = Rect2( 990, 330, 400, 140 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

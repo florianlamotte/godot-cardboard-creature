@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/our-hero.png" type="Texture" id=1]
 [ext_resource path="res://src/character/hero/Hero.gd" type="Script" id=2]
 [ext_resource path="res://assets/termites_and_ants.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/shader/shaderhero.tres" type="Material" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 400, 395.553 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 step = 0.2
@@ -252,7 +253,7 @@ tracks/19/keys = {
 "values": [ 30.0, 25.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -472,7 +473,7 @@ tracks/17/keys = {
 "values": [ 30.0, -65.0, -15.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -706,36 +707,36 @@ tracks/18/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "jump"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=9]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=12]
-states/idle/node = SubResource( 5 )
+[sub_resource type="AnimationNodeStateMachine" id=13]
+states/idle/node = SubResource( 6 )
 states/idle/position = Vector2( 276, 124 )
-states/jump/node = SubResource( 6 )
+states/jump/node = SubResource( 7 )
 states/jump/position = Vector2( 478, 181 )
-states/run/node = SubResource( 7 )
+states/run/node = SubResource( 8 )
 states/run/position = Vector2( 478, 65 )
-transitions = [ "idle", "run", SubResource( 8 ), "run", "idle", SubResource( 9 ), "idle", "jump", SubResource( 10 ), "jump", "idle", SubResource( 11 ) ]
+transitions = [ "idle", "run", SubResource( 9 ), "run", "idle", SubResource( 10 ), "idle", "jump", SubResource( 11 ), "jump", "idle", SubResource( 12 ) ]
 start_node = "idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
 [node name="Hero" type="KinematicBody2D"]
 position = Vector2( 7.62939e-06, 4.76837e-07 )
@@ -744,73 +745,81 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -4.57764e-05, -2.38419e-06 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 2 )
-anims/jump = SubResource( 3 )
-anims/run = SubResource( 4 )
+anims/idle = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/run = SubResource( 5 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 12 )
+tree_root = SubResource( 13 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 13 )
+parameters/playback = SubResource( 14 )
 
 [node name="Pivot" type="Position2D" parent="."]
 position = Vector2( -65.9257, -89.8984 )
 
 [node name="LegBackLeft" type="Sprite" parent="Pivot"]
+material = ExtResource( 4 )
 position = Vector2( -253.014, -65.9255 )
-rotation = 0.452502
+rotation = 0.474635
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackLeft" type="Sprite" parent="Pivot/LegBackLeft"]
-position = Vector2( -395.898, 190.525 )
-rotation = -0.572106
+material = ExtResource( 4 )
+position = Vector2( -388.227, 201.352 )
+rotation = -0.638507
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegBackRight" type="Sprite" parent="Pivot"]
+material = ExtResource( 4 )
 position = Vector2( -317.641, 104.881 )
-rotation = -0.190702
+rotation = -0.212836
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 730, 730, 620, 250 )
 
 [node name="FootBackRight" type="Sprite" parent="Pivot/LegBackRight"]
-position = Vector2( -480.563, 58.9975 )
-rotation = -0.0710974
+material = ExtResource( 4 )
+position = Vector2( -488.615, 52.7584 )
+rotation = -0.0489639
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 40, 700, 660, 330 )
 
 [node name="LegFrontRight" type="Sprite" parent="Pivot"]
-position = Vector2( 262.899, 253.566 )
-rotation = -0.28439
+material = ExtResource( 4 )
+position = Vector2( 258.755, 258.587 )
+rotation = -0.195855
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1450, 290, 260, 320 )
 
 [node name="legFrontLeft" type="Sprite" parent="Pivot"]
+material = ExtResource( 4 )
 position = Vector2( 171.676, 371.58 )
-rotation = -0.0710974
+rotation = -0.0489639
 scale = Vector2( 1, 0.99531 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1460, 10, 210, 270 )
 
 [node name="Skull" type="Sprite" parent="Pivot"]
-rotation = 0.028439
+material = ExtResource( 4 )
+rotation = 0.0195855
 z_index = 2
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 370, 20, 530, 620 )
 
 [node name="Jaw" type="Sprite" parent="Pivot/Skull"]
+material = ExtResource( 4 )
 position = Vector2( 21.3815, 295.778 )
 z_index = -1
 texture = ExtResource( 1 )
